@@ -31,7 +31,8 @@ FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
 flags.DEFINE_integer('max_steps', 25000, 'Number of steps to run trainer.')
 flags.DEFINE_integer('hidden1', 512, 'Number of units in hidden layer 1.')
-flags.DEFINE_integer('hidden2', 6, 'Number of units in hidden layer 2.')
+flags.DEFINE_integer('hidden2', 256, 'Number of units in hidden layer 2.')
+flags.DEFINE_integer('hidden3', 64, 'Number of units in hidden layer 3' )
 flags.DEFINE_integer('batch_size', 100, 'Batch size.  '
                      'Must divide evenly into the dataset sizes.')
 flags.DEFINE_string('train_dir', 'data', 'Directory to put the training data.')
