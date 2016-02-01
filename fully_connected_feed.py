@@ -26,13 +26,24 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow.examples.tutorials.mnist import mnist
 # Basic model parameters as external flags.
+
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
 flags.DEFINE_integer('max_steps', 25000, 'Number of steps to run trainer.')
-flags.DEFINE_integer('hidden1', 512, 'Number of units in hidden layer 1.')
-flags.DEFINE_integer('hidden2', 256, 'Number of units in hidden layer 2.')
-flags.DEFINE_integer('hidden3', 6, 'Number of units in hidden layer 3' )
+answer = raw_input("Redefine hidden layer size? (y/n)\n")
+if(answer == 'y'):
+  size1 = raw_input("Size1: \n")
+  size2 = raw_input("Size2: \n")
+  size3 = raw_input("Size3: \n")
+  flags = tf.app.flags
+  flags.DEFINE_integer('hidden1', size1, 'Number of units in hidden layer 1.')
+  flags.DEFINE_integer('hidden2', size2, 'Number of units in hidden layer 2.')
+  flags.DEFINE_integer('hidden3', size3, 'Number of units in hidden layer 3' )
+else: 
+  flags.DEFINE_integer('hidden1', 512, 'Number of units in hidden layer 1.')
+  flags.DEFINE_integer('hidden2', 256, 'Number of units in hidden layer 2.')
+  flags.DEFINE_integer('hidden3', 6, 'Number of units in hidden layer 3' )
 flags.DEFINE_integer('batch_size', 100, 'Batch size.  '
                      'Must divide evenly into the dataset sizes.')
 flags.DEFINE_string('train_dir', 'data', 'Directory to put the training data.')
